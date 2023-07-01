@@ -1,0 +1,25 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-4">
+            <div class="card p-4">
+                <div class="card-body">
+                    <h5 class="card-title">Confirm Deletion</h5>
+                    <p class="card-text">Are you sure you want to delete "{{ item }}"?</p>
+                    <form action="{% url 'delete_order' item.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <a class="btn btn-secondary mr-2" href="{% url 'home' %}">Cancel</a>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

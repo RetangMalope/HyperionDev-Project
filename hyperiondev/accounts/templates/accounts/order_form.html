@@ -1,0 +1,48 @@
+{% extends 'accounts/main.html' %}
+
+{% block styles %}
+<style>
+    /* Custom styles for the create order form */
+    .create-order-form {
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .create-order-form .form-group label {
+        color: #ffffff;
+    }
+
+    .create-order-form .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .create-order-form .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card create-order-form">
+                <div class="card-header">Create Order</div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.as_p }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
